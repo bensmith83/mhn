@@ -72,6 +72,7 @@
                 <tbody>
                     {% for at in attacks.items %}
                     <tr>
+                        {% if at.source_ip == ip %}
                         <td>{{ loop.index }}</td>
                         <td>{{ at.timestamp|fdate }}</td>
                         <td><img src="{{ get_flag_ip(at.source_ip) }}" width=25 height=50 /></td>
@@ -79,6 +80,7 @@
                         <td>{{ at.destination_port }}</td>
                         <td>{{ at.protocol }}</td>
                         <td>{{ at.honeypot }}</td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
